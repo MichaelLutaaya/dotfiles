@@ -1,3 +1,6 @@
+# Delete Xcode’s DerivedData folder
+alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
+
 # Colorize the output of `ls`
 alias ls="ls -G"
 
