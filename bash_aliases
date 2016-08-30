@@ -1,3 +1,6 @@
+# Change to Code directory
+alias code="cd ~/Code"
+
 # Delete Xcode’s DerivedData folder
 alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
 
