@@ -6,6 +6,9 @@ alias code="cd ~/Code"
 ## Delete Xcode’s DerivedData folder
 alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
 
+## An unfortunate solution that fixes sound issues in macOS Sierra
+alias fixaudio="sudo killall coreaudiod"
+
 ## Colorize the output of `ls`
 alias ls="ls -G"
 
