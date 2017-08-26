@@ -1,3 +1,5 @@
+require "erb"
+
 # https://github.com/ryanb/dotfiles/blob/ca4d95179b62ceb1a760a2922953edd01d75c382/Rakefile
 desc "Install dotfiles in home directory"
 task :install do
