@@ -1,7 +1,10 @@
 # Aliases
 
-## Change to Code directory
+## Shortcuts
 alias code="cd ~/Code"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias icd="cd ~/Library/Mobile\ Documents"
 
 ## Delete Xcode’s DerivedData folder
 alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
@@ -10,8 +13,8 @@ alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
 alias fixaudio="sudo killall coreaudiod"
 
 # Toggle visibility of hidden files in Finder
-alias hideHidden="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder"
-alias showHidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder"
+alias show="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder"
 
 ## Colorize the output of `ls`
 alias ls="ls -aGhlp"
