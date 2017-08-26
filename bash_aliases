@@ -6,9 +6,6 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias icd="cd ~/Library/Mobile\ Documents"
 
-## Delete Xcode’s DerivedData folder
-alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
-
 ## An unfortunate solution that fixes sound issues in macOS Sierra
 alias fixaudio="sudo killall coreaudiod"
 
@@ -21,6 +18,11 @@ alias ls="ls -aGhlp"
 
 ## Show the OS X Login Window
 alias lw="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+## Xcode
+alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
+alias xcstable="sudo xcode-select -s /Applications/Xcode.app/Contents/Developer"
+alias xcbeta="sudo xcode-select -s /Applications/Xcode-beta.app/Contents/Developer"
 
 # Functions
 
