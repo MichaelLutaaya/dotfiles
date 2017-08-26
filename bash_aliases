@@ -14,7 +14,7 @@ alias hideHidden="defaults write com.apple.finder AppleShowAllFiles NO; killall 
 alias showHidden="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder"
 
 ## Colorize the output of `ls`
-alias ls="ls -G"
+alias ls="ls -aGhlp"
 
 ## Show the OS X Login Window
 alias lw="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
