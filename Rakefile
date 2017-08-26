@@ -7,7 +7,7 @@ task :copy_files_to_home do
   replace_all = false
   files = Dir["*"] - %w[Brewfile LICENSE.md Rakefile README.md]
   files.each do |file|
-    system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
+    FileUtils.mkdir_p "#{ENV['HOME']}/.#{File.dirname(file)}" if file =~ /\//
     if File.exist?(File.join(ENV["HOME"], ".#{file.sub(/\.erb$/, '')}"))
       if File.identical? file, File.join(ENV["HOME"], ".#{file.sub(/\.erb$/, '')}")
         puts "identical ~/.#{file.sub(/\.erb$/, '')}"
@@ -36,7 +36,7 @@ end
 desc "Install dependencies via Homebrew"
 task :homebrew do
   install_homebrew unless system "command -v brew >/dev/null"
-  system "brew tap homebrew/bundle && brew update && brew bundle && brew cleanup"
+  system "brew analytics off && brew tap homebrew/bundle && brew update && brew bundle && brew cleanup"
   system "rbenv install --skip-existing 2.4.1 && rbenv global 2.4.1"
 end
 
@@ -44,7 +44,7 @@ desc "Install dotfiles"
 task :install => [:copy_files_to_home, :homebrew]
 
 def replace_file(file)
-  system %Q{rm -rf "$HOME/.#{file.sub(/\.erb$/, '')}"}
+  FileUtils.rm_rf "#{ENV['HOME']}/.#{file.sub(/\.erb$/, '')}", secure: true
   link_file(file)
 end
 
@@ -56,7 +56,7 @@ def link_file(file)
     end
   else
     puts "linking ~/.#{file}"
-    system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
+    FileUtils.ln_s "#{Dir.pwd}/#{file}", "#{ENV['HOME']}/.#{file}"
   end
 end
 
