@@ -4,7 +4,7 @@ require "erb"
 desc "Install dotfiles in home directory"
 task :install do
   replace_all = false
-  files = Dir["*"] - %w[LICENSE.md Rakefile README.md]
+  files = Dir["*"] - %w[Brewfile LICENSE.md Rakefile README.md]
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV["HOME"], ".#{file.sub(/\.erb$/, '')}"))
@@ -32,6 +32,12 @@ task :install do
   end
 end
 
+desc "Install dependencies via Homebrew"
+task :homebrew => :install do
+  install_homebrew unless system "command -v brew >/dev/null"
+  system "brew tap homebrew/bundle && brew update && brew bundle && brew cleanup"
+end
+
 def replace_file(file)
   system %Q{rm -rf "$HOME/.#{file.sub(/\.erb$/, '')}"}
   link_file(file)
@@ -47,4 +53,8 @@ def link_file(file)
     puts "linking ~/.#{file}"
     system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
   end
+end
+
+def install_homebrew
+  system "ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 end
