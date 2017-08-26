@@ -37,7 +37,7 @@ desc "Install dependencies via Homebrew"
 task :homebrew do
   install_homebrew unless system "command -v brew >/dev/null"
   system "brew tap homebrew/bundle && brew update && brew bundle && brew cleanup"
-  system "rbenv install 2.4.1 && rbenv global 2.4.1"
+  system "rbenv install --skip-existing 2.4.1 && rbenv global 2.4.1"
 end
 
 desc "Install dotfiles"
