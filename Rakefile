@@ -1,8 +1,9 @@
 require "erb"
 
 # https://github.com/ryanb/dotfiles/blob/ca4d95179b62ceb1a760a2922953edd01d75c382/Rakefile
-desc "Install dotfiles in home directory"
-task :install do
+
+desc "Copy files to home directory"
+task :copy_files_to_home do
   replace_all = false
   files = Dir["*"] - %w[Brewfile LICENSE.md Rakefile README.md]
   files.each do |file|
@@ -33,11 +34,14 @@ task :install do
 end
 
 desc "Install dependencies via Homebrew"
-task :homebrew => :install do
+task :homebrew do
   install_homebrew unless system "command -v brew >/dev/null"
   system "brew tap homebrew/bundle && brew update && brew bundle && brew cleanup"
   system "rbenv install 2.4.1 && rbenv global 2.4.1"
 end
+
+desc "Install dotfiles"
+task :install => [:copy_files_to_home, :homebrew]
 
 def replace_file(file)
   system %Q{rm -rf "$HOME/.#{file.sub(/\.erb$/, '')}"}
