@@ -1,30 +1,33 @@
 require "erb"
 
-# https://github.com/ryanb/dotfiles/blob/ca4d95179b62ceb1a760a2922953edd01d75c382/Rakefile
-
 desc "Copy files to home directory"
 task :copy_files_to_home do
   replace_all = false
+  home_dir = File.expand_path("~")
+
   files = Dir["*"] - %w[Brewfile LICENSE.md Rakefile README.md]
   files.each do |file|
-    FileUtils.mkdir_p "#{ENV['HOME']}/.#{File.dirname(file)}" if file =~ /\//
-    if File.exist?(File.join(ENV["HOME"], ".#{file.sub(/\.erb$/, '')}"))
-      if File.identical? file, File.join(ENV["HOME"], ".#{file.sub(/\.erb$/, '')}")
-        puts "identical ~/.#{file.sub(/\.erb$/, '')}"
+    source = File.join(Dir.pwd, file)
+    destination = File.join(home_dir, ".#{file.sub(/\.erb$/, '')}")
+
+    FileUtils.mkdir_p(File.join(home_dir, ".#{File.dirname(file)}")) if file =~ /\//
+    if File.exist? destination
+      if File.identical?(source, destination)
+        puts "identical ~/#{File.basename(destination)}"
       elsif replace_all
-        replace_file(files)
+        replace(source, destination)
       else
-        print "overwrite ~/.#{file.sub(/\.erb$/, '')}? [ynaq] "
+        print "overwrite ~/#{File.basename(destination)}? [ynaq] "
         case $stdin.gets.chomp
         when "a"
           replace_all = true
-          replace_file(file)
+          replace(source, destination)
         when "y"
-          replace_file(file)
+          replace(source, destination)
         when "q"
           exit
         else
-          puts "skipping ~/.#{file.sub(/\.erb$/, '')}"
+          puts "skipping ~/#{File.basename(destination)}"
         end
       end
     else
@@ -43,20 +46,18 @@ end
 desc "Install dotfiles"
 task :install => [:copy_files_to_home, :homebrew]
 
-def replace_file(file)
-  FileUtils.rm_rf "#{ENV['HOME']}/.#{file.sub(/\.erb$/, '')}", secure: true
-  link_file(file)
+def replace(source, destination)
+  FileUtils.rm_rf(destination, secure: true)
+  link(source, destination)
 end
 
-def link_file(file)
-  if file =~ /.erb$/
-    puts "generating ~/.#{file.sub(/\.erb$/, '')}"
-    File.open(File.join(ENV["HOME"], ".#{file.sub(/\.erb$/, '')}"), "w") do |new_file|
-      new_file.write ERB.new(File.read(file)).result(binding)
-    end
+def link(source, destination)
+  if File.extname(source) == ".erb"
+    puts "generating ~/#{File.basename(destination)}"
+    File.open(destination, "w") { |f| f.write ERB.new(File.read(source)).result(binding) }
   else
-    puts "linking ~/.#{file}"
-    FileUtils.ln_s "#{Dir.pwd}/#{file}", "#{ENV['HOME']}/.#{file}"
+    puts "linking ~/#{File.basename(destination)}"
+    FileUtils.ln_s(source, destination)
   end
 end
 
