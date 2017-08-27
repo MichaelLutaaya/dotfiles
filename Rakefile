@@ -1,7 +1,7 @@
 require "erb"
 
-desc "Copy files to home directory"
-task :copy_files_to_home do
+desc "Copy dotfiles to home directory"
+task :dotfiles do
   replace_all = false
   home_dir = File.expand_path("~")
 
@@ -43,8 +43,8 @@ task :homebrew do
   system "rbenv install --skip-existing 2.4.1 && rbenv global 2.4.1"
 end
 
-desc "Install dotfiles"
-task :install => [:copy_files_to_home, :homebrew]
+desc "Install everything"
+task :install => [:dotfiles, :homebrew]
 
 def replace(source, destination)
   FileUtils.rm_rf(destination, secure: true)
