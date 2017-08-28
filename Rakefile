@@ -31,7 +31,7 @@ task :dotfiles do
         end
       end
     else
-      link_file(file)
+      link(source, destination)
     end
   end
 end
