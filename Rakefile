@@ -43,8 +43,13 @@ task :homebrew do
   system "rbenv install --skip-existing 2.4.1 && rbenv global 2.4.1"
 end
 
+desc "Install system-wide gems"
+task :gems do
+  system "gem update --system && gem install geocoder"
+end
+
 desc "Install everything"
-task :install => [:dotfiles, :homebrew]
+task :install => [:dotfiles, :homebrew, :gems]
 
 def replace(source, destination)
   FileUtils.rm_rf(destination, secure: true)
