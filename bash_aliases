@@ -4,7 +4,7 @@
 alias code="cd ~/Code"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias icd="cd ~/Library/Mobile\ Documents"
+alias icd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 ## An unfortunate solution that fixes sound issues in macOS Sierra
 alias fixaudio="sudo killall coreaudiod"
