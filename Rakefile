@@ -45,7 +45,7 @@ end
 
 desc "Install system-wide gems"
 task :gems do
-  system "gem update --system && gem install geocoder"
+  system "gem update --system && gem install geocoder fastlane"
 end
 
 desc "Install everything"
