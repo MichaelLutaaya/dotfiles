@@ -5,7 +5,7 @@ task :dotfiles do
   replace_all = false
   home_dir = File.expand_path("~")
 
-  files = Dir["*"] - %w[Brewfile LICENSE.md Rakefile README.md]
+  files = Dir["*"] - %w[Brewfile LICENSE.md Rakefile rbenv.sh README.md]
   files.each do |file|
     source = File.join(Dir.pwd, file)
     destination = File.join(home_dir, ".#{file.sub(/\.erb$/, '')}")
@@ -40,7 +40,11 @@ desc "Install dependencies via Homebrew"
 task :homebrew do
   install_homebrew unless system "command -v brew >/dev/null"
   system "brew analytics off && brew tap homebrew/bundle && brew update && brew bundle && brew cleanup"
-  system "rbenv install --skip-existing 2.4.1 && rbenv global 2.4.1"
+end
+
+desc "Install latest Ruby version"
+task :rbenv do
+  system "./rbenv.sh"
 end
 
 desc "Install system-wide gems"
@@ -49,7 +53,7 @@ task :gems do
 end
 
 desc "Install everything"
-task :install => [:dotfiles, :homebrew, :gems]
+task :install => [:dotfiles, :homebrew, :rbenv, :gems]
 
 def replace(source, destination)
   FileUtils.rm_rf(destination, secure: true)
