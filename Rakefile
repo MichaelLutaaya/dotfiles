@@ -39,7 +39,7 @@ end
 desc "Install dependencies via Homebrew"
 task :homebrew do
   install_homebrew unless system "command -v brew >/dev/null"
-  system "brew analytics off && brew tap homebrew/bundle && brew update && brew bundle && brew cleanup --prune=1 -s"
+  system "brew analytics off && brew doctor && brew tap homebrew/bundle && brew update && brew bundle && brew cleanup --prune=1 -s"
 end
 
 desc "Install latest Ruby version"
