@@ -16,9 +16,6 @@ alias show="defaults write com.apple.finder AppleShowAllFiles YES; killall Finde
 ## Colorize the output of `ls`
 alias ls="ls -aGhlp"
 
-## Show the OS X Login Window
-alias lw="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
 ## Xcode
 alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
 alias xcstable="sudo xcode-select -s /Applications/Xcode.app/Contents/Developer"
