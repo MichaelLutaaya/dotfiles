@@ -1,6 +1,7 @@
 cask_args appdir: "/Applications"
 
 tap "caskroom/cask"
+tap "caskroom/versions"
 
 brew "git"
 brew "imagemagick"
@@ -17,6 +18,7 @@ cask "fastscripts"
 cask "framer"
 cask "google-chrome"
 cask "imageoptim"
+cask "java8"
 cask "ksdiff"
 cask "microsoft-office"
 cask "nudgit"
