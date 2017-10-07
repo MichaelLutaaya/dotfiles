@@ -5,6 +5,7 @@ tap "caskroom/versions"
 
 brew "git"
 brew "imagemagick"
+brew "node"         # Required for Sublime-HTMLPrettify plugin
 brew "rbenv"
 
 cask "airfoil"
@@ -28,6 +29,7 @@ cask "qlstephen"
 cask "sequel-pro"
 cask "skala-preview"
 cask "sketch"
+cask "skype"
 cask "sublime-text"
 cask "superduper"
 cask "tower"
