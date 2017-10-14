@@ -5,7 +5,7 @@ task :dotfiles do
   replace_all = false
   home_dir = File.expand_path("~")
 
-  files = Dir["*"] - %w[Brewfile LICENSE.md Rakefile rbenv.sh README.md]
+  files = Dir["*"] - %w[brew.sh Brewfile LICENSE.md Rakefile rbenv.sh README.md sublime]
   files.each do |file|
     source = File.join(Dir.pwd, file)
     destination = File.join(home_dir, ".#{file.sub(/\.erb$/, '')}")
@@ -39,7 +39,7 @@ end
 desc "Install dependencies via Homebrew"
 task :homebrew do
   install_homebrew unless system "command -v brew >/dev/null"
-  system "brew analytics off && brew doctor && brew tap homebrew/bundle && brew update && brew bundle && brew cleanup --prune=1 -s && brew cask cleanup && brew bundle cleanup --force"
+  system "./brew.sh"
 end
 
 desc "Install latest Ruby version"
