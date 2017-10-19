@@ -49,7 +49,7 @@ end
 
 desc "Install system-wide gems"
 task :gems do
-  system "gem update --system && gem install cocoapods geocoder fastlane && gem cleanup"
+  system "gem update --system && gem install bundler cocoapods geocoder fastlane && gem cleanup"
 end
 
 desc "Install everything"
