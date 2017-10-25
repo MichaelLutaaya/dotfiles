@@ -6,9 +6,6 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias icd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
 
-## An unfortunate solution that fixes sound issues in macOS Sierra
-alias fixaudio="sudo killall coreaudiod"
-
 # Toggle visibility of hidden files in Finder
 alias hide="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder"
 alias show="defaults write com.apple.finder AppleShowAllFiles YES; killall Finder"
