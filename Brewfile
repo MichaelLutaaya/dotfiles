@@ -2,9 +2,11 @@ cask_args appdir: "/Applications"
 
 tap "caskroom/cask"
 tap "caskroom/versions"
+tap "homebrew/services"
 
 brew "git"
 brew "imagemagick"
+brew "mysql"
 brew "node"         # Required for Sublime-HTMLPrettify plugin
 brew "rbenv"
 
@@ -23,6 +25,7 @@ cask "google-chrome"
 cask "imageoptim"
 cask "ksdiff"
 cask "microsoft-office"
+cask "mysqlworkbench"
 cask "nudgit"
 cask "omnigraffle"
 cask "paw"
