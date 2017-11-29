@@ -2,11 +2,9 @@ cask_args appdir: "/Applications"
 
 tap "caskroom/cask"
 tap "caskroom/versions"
-tap "homebrew/services"
 
 brew "git"
 brew "imagemagick"
-brew "mysql"
 brew "node"         # Required for Sublime-HTMLPrettify plugin
 brew "rbenv"
 
@@ -14,11 +12,9 @@ cask "airfoil"
 cask "backblaze"
 cask "basictex"
 cask "cardhop"
-cask "caskroom/versions/java8"
 cask "daisydisk"
 cask "dash"
 cask "docker"
-cask "eclipse-ide"
 cask "fantastical"
 cask "fastscripts"
 cask "framer"
@@ -26,7 +22,6 @@ cask "google-chrome"
 cask "imageoptim"
 cask "ksdiff"
 cask "microsoft-office"
-cask "mysqlworkbench"
 cask "nudgit"
 cask "omnigraffle"
 cask "paw"
@@ -40,3 +35,16 @@ cask "superduper"
 cask "tower"
 cask "transmit"
 cask "vlc"
+
+# MSR
+
+tap "homebrew/services"
+
+brew "maven"
+brew "mysql"
+
+cask "caskroom/versions/java8"
+cask "eclipse-ide"
+cask "mysqlworkbench"
+cask "x2goclient"
+cask "xquartz"
