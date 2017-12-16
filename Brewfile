@@ -7,6 +7,7 @@ brew "git"
 brew "imagemagick"
 brew "node"         # Required for Sublime-HTMLPrettify plugin
 brew "rbenv"
+brew "youtube-dl"
 
 cask "airfoil"
 cask "backblaze"
