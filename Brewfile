@@ -39,13 +39,5 @@ cask "vlc"
 
 # MSR
 
-tap "homebrew/services"
-
-brew "maven"
-brew "mysql"
-
-cask "caskroom/versions/java8"
-cask "eclipse-ide"
-cask "mysqlworkbench"
 cask "x2goclient"
 cask "xquartz"
