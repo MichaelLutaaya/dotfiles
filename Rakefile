@@ -52,8 +52,13 @@ task :gems do
   system "gem update --system && gem install bundler cocoapods geocoder fastlane && gem cleanup"
 end
 
+desc "Install Sublime preferences"
+task :sublime do
+  system "./sublime.sh"
+end
+
 desc "Install everything"
-task :install => [:dotfiles, :homebrew, :rbenv, :gems]
+task :install => [:dotfiles, :homebrew, :rbenv, :gems, :sublime]
 
 def replace(source, destination)
   FileUtils.rm_rf(destination, secure: true)
