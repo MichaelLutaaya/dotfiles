@@ -5,7 +5,7 @@ task :dotfiles do
   replace_all = false
   home_dir = File.expand_path("~")
 
-  files = Dir["*"] - %w[brew.sh Brewfile LICENSE.md Rakefile rbenv.sh README.md sublime]
+  files = Dir["*"] - %w[brew.sh Brewfile LICENSE.md Rakefile rbenv.sh README.md sublime sublime.sh]
   files.each do |file|
     source = File.join(Dir.pwd, file)
     destination = File.join(home_dir, ".#{file.sub(/\.erb$/, '')}")
