@@ -37,7 +37,6 @@ cask "tower"
 cask "transmit"
 cask "vlc"
 
-# MSR
+# M-Commerce
 
-cask "x2goclient"
-cask "xquartz"
+cask "android-studio"
