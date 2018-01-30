@@ -2,6 +2,7 @@ cask_args appdir: "/Applications"
 
 tap "caskroom/cask"
 tap "caskroom/versions"
+tap "vitorgalvao/tiny-scripts"
 
 brew "git"
 brew "imagemagick"
@@ -41,3 +42,9 @@ cask "vlc"
 
 cask "android-studio"
 cask "android-platform-tools"
+
+# Tools for updating casks
+
+brew "cask-repair"	
+brew "hr"
+brew "hub"
