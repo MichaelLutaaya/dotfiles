@@ -40,3 +40,4 @@ cask "vlc"
 # M-Commerce
 
 cask "android-studio"
+cask "android-platform-tools"
