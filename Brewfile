@@ -38,11 +38,6 @@ cask "tower"
 cask "transmit"
 cask "vlc"
 
-# M-Commerce
-
-cask "android-studio"
-cask "android-platform-tools"
-
 # Tools for updating casks
 
 brew "cask-repair"	
