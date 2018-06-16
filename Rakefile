@@ -1,4 +1,25 @@
-require "erb"
+module Dotfiles
+	module FileReplacer
+		def self.replace(source, destination)
+		  FileUtils.rm_rf(destination, secure: true)
+		  FileLinker.link(source, destination)
+		end
+	end
+
+	module FileLinker
+		require "erb"
+
+		def self.link(source, destination)
+		  if File.extname(source) == ".erb"
+		    puts "generating ~/#{File.basename(destination)}"
+		    File.open(destination, "w") { |f| f.write ERB.new(File.read(source)).result(binding) }
+		  else
+		    puts "linking ~/#{File.basename(destination)}"
+		    FileUtils.ln_s(source, destination)
+		  end
+		end
+	end
+end
 
 desc "Copy dotfiles to home directory"
 task :dotfiles do
@@ -15,15 +36,15 @@ task :dotfiles do
       if File.identical?(source, destination)
         puts "identical ~/#{File.basename(destination)}"
       elsif replace_all
-        replace(source, destination)
+        Dotfiles::FileReplacer.replace(source, destination)
       else
         print "overwrite ~/#{File.basename(destination)}? [ynaq] "
         case $stdin.gets.chomp
         when "a"
           replace_all = true
-          replace(source, destination)
+          Dotfiles::FileReplacer.replace(source, destination)
         when "y"
-          replace(source, destination)
+          Dotfiles::FileReplacer.replace(source, destination)
         when "q"
           exit
         else
@@ -31,7 +52,7 @@ task :dotfiles do
         end
       end
     else
-      link(source, destination)
+      Dotfiles::FileLinker.link(source, destination)
     end
   end
 end
@@ -49,7 +70,7 @@ end
 
 desc "Install system-wide gems"
 task :gems do
-  system "gem update --system && gem install bundler cocoapods geocoder fastlane && gem cleanup"
+  system "gem update --system && gem install bundler byebug && gem cleanup"
 end
 
 desc "Install Sublime preferences"
@@ -59,21 +80,6 @@ end
 
 desc "Install everything"
 task :install => [:dotfiles, :homebrew, :rbenv, :gems, :sublime]
-
-def replace(source, destination)
-  FileUtils.rm_rf(destination, secure: true)
-  link(source, destination)
-end
-
-def link(source, destination)
-  if File.extname(source) == ".erb"
-    puts "generating ~/#{File.basename(destination)}"
-    File.open(destination, "w") { |f| f.write ERB.new(File.read(source)).result(binding) }
-  else
-    puts "linking ~/#{File.basename(destination)}"
-    FileUtils.ln_s(source, destination)
-  end
-end
 
 def install_homebrew
   system "ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
