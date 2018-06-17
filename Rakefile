@@ -82,6 +82,11 @@ end
 desc "Install everything"
 task :install => [:copy, :homebrew, :rbenv, :gems, :sublime]
 
+desc "Edit dotfiles in Sublime Text"
+task :edit do
+  system "subl -n #{File.dirname(__FILE__)}"
+end
+
 def install_homebrew
   system "ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 end
