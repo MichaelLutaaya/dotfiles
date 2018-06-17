@@ -22,13 +22,14 @@ module Dotfiles
 end
 
 desc "Copy dotfiles to home directory"
-task :dotfiles do
+task :copy do
   replace_all = false
   home_dir = File.expand_path("~")
+  base = File.dirname(__FILE__)
 
-  files = Dir["*"] - %w[brew.sh Brewfile LICENSE.md Rakefile rbenv.sh README.md sublime sublime.sh]
+  files = Dir["*", base: base] - %w[brew.sh Brewfile LICENSE.md Rakefile rbenv.sh README.md sublime sublime.sh]
   files.each do |file|
-    source = File.join(Dir.pwd, file)
+    source = File.join(base, file)
     destination = File.join(home_dir, ".#{file.sub(/\.erb$/, '')}")
 
     FileUtils.mkdir_p(File.join(home_dir, ".#{File.dirname(file)}")) if file =~ /\//
@@ -79,7 +80,7 @@ task :sublime do
 end
 
 desc "Install everything"
-task :install => [:dotfiles, :homebrew, :rbenv, :gems, :sublime]
+task :install => [:copy, :homebrew, :rbenv, :gems, :sublime]
 
 def install_homebrew
   system "ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

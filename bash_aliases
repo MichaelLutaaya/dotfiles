@@ -3,6 +3,7 @@
 ## Shortcuts
 alias code="cd ~/Code"
 alias dl="cd ~/Downloads"
+alias dotfiles="rake -f ~/Code/dotfiles/Rakefile"
 alias dt="cd ~/Desktop"
 alias icd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
 alias thesis="cd ~/Code/mcs-thesis-latex"
