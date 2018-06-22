@@ -5,6 +5,7 @@ tap "caskroom/cask"
 brew "git"
 brew "node"         # Required for Sublime-HTMLPrettify plugin
 brew "rbenv"
+brew "youtube-dl"
 
 cask "1password"
 cask "airfoil"
