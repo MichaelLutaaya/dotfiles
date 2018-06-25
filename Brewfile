@@ -1,6 +1,6 @@
 cask_args appdir: "/Applications"
 
-tap "caskroom/cask"
+tap "homebrew/cask"
 
 brew "git"
 brew "node"         # Required for Sublime-HTMLPrettify plugin
