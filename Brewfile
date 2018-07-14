@@ -1,6 +1,7 @@
 cask_args appdir: "/Applications"
 
 tap "homebrew/cask"
+tap "homebrew/cask-versions"
 
 brew "git"
 brew "node"         # Required for Sublime-HTMLPrettify plugin
@@ -18,4 +19,4 @@ cask "fantastical"
 cask "microsoft-office"
 cask "sublime-text"
 cask "superduper"
-cask "tower"
+cask "tower2"
