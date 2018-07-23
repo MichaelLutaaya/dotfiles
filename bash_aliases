@@ -3,6 +3,7 @@
 ## Shortcuts
 alias b="bundle exec"
 alias code="cd ~/Code"
+alias doc="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias dotfiles="rake -f ~/Code/dotfiles/Rakefile"
 alias dt="cd ~/Desktop"
