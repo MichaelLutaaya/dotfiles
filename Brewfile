@@ -10,7 +10,6 @@ brew "ruby-build"
 brew "youtube-dl"
 
 cask "1password"
-cask "airfoil"
 cask "backblaze"
 cask "basictex"
 cask "cardhop"
