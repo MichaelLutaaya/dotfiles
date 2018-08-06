@@ -1,24 +1,24 @@
 module Dotfiles
-	module FileReplacer
-		def self.replace(source, destination)
-		  FileUtils.rm_rf(destination, secure: true)
-		  FileLinker.link(source, destination)
-		end
-	end
+  module FileReplacer
+    def self.replace(source, destination)
+      FileUtils.rm_rf(destination, secure: true)
+      FileLinker.link(source, destination)
+    end
+  end
 
-	module FileLinker
-		require "erb"
+  module FileLinker
+    require "erb"
 
-		def self.link(source, destination)
-		  if File.extname(source) == ".erb"
-		    puts "generating ~/#{File.basename(destination)}"
-		    File.open(destination, "w") { |f| f.write ERB.new(File.read(source)).result(binding) }
-		  else
-		    puts "linking ~/#{File.basename(destination)}"
-		    FileUtils.ln_s(source, destination)
-		  end
-		end
-	end
+    def self.link(source, destination)
+      if File.extname(source) == ".erb"
+        puts "generating ~/#{File.basename(destination)}"
+        File.open(destination, "w") { |f| f.write ERB.new(File.read(source)).result(binding) }
+      else
+        puts "linking ~/#{File.basename(destination)}"
+        FileUtils.ln_s(source, destination)
+      end
+    end
+  end
 end
 
 desc "Copy dotfiles to home directory"
