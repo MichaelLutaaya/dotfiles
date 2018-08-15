@@ -11,4 +11,5 @@ brew cask outdated | xargs brew cask reinstall
 
 brew cleanup --prune=1 -s
 brew cask cleanup
-brew bundle cleanup --force
+brew bundle dump --force --global
+brew bundle cleanup --force --global
