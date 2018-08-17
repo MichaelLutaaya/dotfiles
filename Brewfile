@@ -7,7 +7,7 @@ brew "git"
 brew "node"         # Required for Sublime-HTMLPrettify plugin
 brew "rbenv"
 brew "ruby-build"
-brew "youtube-dl"
+
 
 cask "1password"
 cask "backblaze"
@@ -20,3 +20,7 @@ cask "microsoft-office"
 cask "sublime-text"
 cask "superduper"
 cask "tower2"
+
+# youtube-dl
+brew "youtube-dl"
+brew "ffmpeg"
