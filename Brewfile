@@ -8,12 +8,12 @@ brew "node"         # Required for Sublime-HTMLPrettify plugin
 brew "rbenv"
 brew "ruby-build"
 
-
 cask "1password"
 cask "backblaze"
 cask "basictex"
 cask "cardhop"
 cask "dash"
+cask "google-chrome"
 cask "fantastical"
 cask "keyboard-maestro"
 cask "microsoft-office"
