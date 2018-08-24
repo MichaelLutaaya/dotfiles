@@ -8,7 +8,7 @@ alias dl="cd ~/Downloads"
 alias dotfiles="rake -f ~/Code/dotfiles/Rakefile"
 alias dt="cd ~/Desktop"
 alias icd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias thesis="cd ~/Code/mcs-thesis-latex"
+alias thesis="cd ~/Code/Thesis"
 
 # Toggle visibility of hidden files in Finder
 alias hide="defaults write com.apple.finder AppleShowAllFiles NO; killall Finder"
