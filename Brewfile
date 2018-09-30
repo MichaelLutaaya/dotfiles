@@ -2,6 +2,7 @@ cask_args appdir: "/Applications"
 
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
+tap "vitorgalvao/tiny-scripts"
 
 brew "git"
 brew "node"         # Required for Sublime-HTMLPrettify plugin
@@ -29,3 +30,6 @@ cask "tower2"
 # youtube-dl
 brew "youtube-dl"
 brew "ffmpeg"
+
+# homebrew
+brew "cask-repair"
