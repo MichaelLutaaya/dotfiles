@@ -1,5 +1,8 @@
-// These settings override both User and Default settings for the LaTeX syntax
 {
-  "spell_check": true,
-  "wrap_width": 80
+	"extensions":
+	[
+		"tikz"
+	],
+	"spell_check": true,
+	"wrap_width": 80
 }
