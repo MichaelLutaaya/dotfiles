@@ -27,6 +27,7 @@ cask "sublime-merge"
 cask "sublime-text"
 cask "superduper"
 cask "tower2"
+cask "transmit"
 
 # youtube-dl
 brew "youtube-dl"
