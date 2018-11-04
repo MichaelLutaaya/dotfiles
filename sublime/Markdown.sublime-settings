@@ -1,5 +1,6 @@
 {
   "auto_complete": true,
   "tab_size": 4,
-  "spell_check": true
+  "spell_check": true,
+  "wrap_width": 80,
 }
