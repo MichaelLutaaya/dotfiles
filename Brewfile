@@ -5,9 +5,11 @@ tap "homebrew/cask-versions"
 tap "vitorgalvao/tiny-scripts"
 
 brew "git"
+brew "markdown"
 brew "node"         # Required for Sublime-HTMLPrettify plugin
 brew "rbenv"
 brew "ruby-build"
+brew "smartypants"
 
 cask "1password"
 cask "backblaze"
