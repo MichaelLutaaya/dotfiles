@@ -1,4 +1,4 @@
-#### History
+#### Options: History
 
 # This option works like APPEND_HISTORY except that new history lines are added
 # to the $HISTFILE incrementally (as soon as they are entered), rather than
@@ -8,7 +8,7 @@
 
 setopt INC_APPEND_HISTORY
 
-#### Corrections
+#### Options: Corrections
 
 # n: execute as typed
 # y: accept and execute the suggested correction
@@ -30,3 +30,18 @@ setopt CORRECT
 # names that will never be offered as corrections.
 
 setopt CORRECT_ALL
+
+#### Aliases: Frequently Accessed Directories
+
+alias doc="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias icd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
+
+#### Aliases: Xcode
+
+alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
+
+#### Aliases: Miscellaneous
+
+alias ls="ls -aGhlp"
