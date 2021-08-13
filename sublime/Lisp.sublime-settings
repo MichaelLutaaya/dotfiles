@@ -1,9 +1,0 @@
-{
-	"extensions":
-	[
-		"lisp",
-		"scm",
-		"ss",
-		"rkt"
-	]
-}
