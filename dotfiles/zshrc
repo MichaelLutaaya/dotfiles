@@ -1,0 +1,32 @@
+#### History
+
+# This option works like APPEND_HISTORY except that new history lines are added
+# to the $HISTFILE incrementally (as soon as they are entered), rather than
+# waiting until the shell exits. The file will still be periodically re-written
+# to trim it when the number of lines grows 20% beyond the value specified by
+# $SAVEHIST (see also the HIST_SAVE_BY_COPY option).
+
+setopt INC_APPEND_HISTORY
+
+#### Corrections
+
+# n: execute as typed
+# y: accept and execute the suggested correction
+# a: abort and do nothing
+# e: return to the prompt to continue editing
+
+# Try to correct the spelling of commands. Note that, when the HASH_LIST_ALL
+# option is not set or when some directories in the path are not readable, this
+# may falsely report spelling errors the first time some commands are used.
+
+# The shell variable CORRECT_IGNORE may be set to a pattern to match words that
+# will never be offered as corrections.
+
+setopt CORRECT
+
+# Try to correct the spelling of all arguments in a line.
+
+# The shell variable CORRECT_IGNORE_FILE may be set to a pattern to match file
+# names that will never be offered as corrections.
+
+setopt CORRECT_ALL
