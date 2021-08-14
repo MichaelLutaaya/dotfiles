@@ -31,6 +31,10 @@ setopt CORRECT
 
 setopt CORRECT_ALL
 
+#### Completion System
+
+autoload -Uz compinit && compinit
+
 #### Aliases: Frequently Accessed Directories
 
 alias doc="cd ~/Documents"
