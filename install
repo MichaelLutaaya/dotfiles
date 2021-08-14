@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require "rake"
+
+load File.join(__dir__, "Rakefile")
+
+Rake::Task["install"].invoke(true)

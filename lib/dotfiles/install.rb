@@ -4,8 +4,8 @@ module Dotfiles
   module Install
     extend self
 
-    def run
-      replace_all = false
+    def run(args)
+      replace_all = args.fetch(:assume_yes)
 
       files_to_sync.each do |source|
         destination = File.join(ENV.fetch("HOME"), ".#{File.basename(source)}")
