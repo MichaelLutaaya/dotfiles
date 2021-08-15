@@ -48,6 +48,9 @@ alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
 
 #### Aliases: Miscellaneous
 
+# Useful if AirPods aren't connecting.
+alias fixaudio="sudo kill `pgrep coreaudiod`"
+
 alias ls="ls -aGhlp"
 
 #### Include Private .zshrc
