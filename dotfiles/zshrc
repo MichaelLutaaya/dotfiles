@@ -53,3 +53,7 @@ alias ls="ls -aGhlp"
 #### Include Private .zshrc
 
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private
+
+#### Include chruby
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
