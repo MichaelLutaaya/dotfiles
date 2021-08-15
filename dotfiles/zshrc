@@ -49,3 +49,7 @@ alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
 #### Aliases: Miscellaneous
 
 alias ls="ls -aGhlp"
+
+#### Include Private .zshrc
+
+[ -f ~/.zshrc.private ] && source ~/.zshrc.private
