@@ -47,7 +47,7 @@ module Dotfiles
 
     def overwrite_prompt(destination)
       print "overwrite #{destination}? [ynaq] "
-      $STDIN.gets.chomp
+      STDIN.gets.chomp
     end
 
     def files_to_sync
