@@ -52,6 +52,7 @@ alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
 alias fixaudio="sudo kill `pgrep coreaudiod`"
 
 alias ls="ls -aGhlp"
+alias scratch="code -n ~/Code/scratchpad.md"
 
 #### Include Private .zshrc
 
