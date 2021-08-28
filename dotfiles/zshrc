@@ -50,6 +50,7 @@ alias ddd="rm -rf ~/Library/Developer/Xcode/DerivedData"
 
 # Useful if AirPods aren't connecting.
 alias fixaudio="sudo kill `pgrep coreaudiod`"
+alias beep="afplay /System/Library/Sounds/Funk.aiff"
 
 alias ls="ls -aGhlp"
 alias scratch="code -n ~/Code/scratchpad.md"
