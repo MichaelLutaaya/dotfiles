@@ -62,3 +62,7 @@ alias scratch="code -n ~/Code/scratchpad.md"
 #### Include chruby
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+
+#### Add homebrew to PATH
+
+[[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
